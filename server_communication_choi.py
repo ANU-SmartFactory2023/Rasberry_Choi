@@ -40,7 +40,7 @@ class ServerComm :
 
     # 1~4 차 제조 공정 전 제품 도착 여부 전송 (Post)
     def confirmationObject( self, idx, on_off ) :
-        p = Process()
+        p = Process.SensorModel()
         
         p.sensorName = "detect"
         p.sensorState = on_off
@@ -49,14 +49,25 @@ class ServerComm :
 
         return res
     
+    # 각 공정마다 인수를 넣지 않고 간단하게 호출할 수 있도록
+    # 공정마다 매개변수를 통신 클래스에서 먼저 정의하는 방법
+    def photoStart( self ):
+        self.__checkProcess( 1, "start", "photo", "0")
+
+    def photoEnd( self, processValue):
+        self.__checkProcess( 1, "end", "photo", processValue)
+
+    #이 뒤로 2, 3, 4 공정 start, end 추가 예정
+    
+
     # 1~4 차 제조 공정 후 불량품 구분을 위한 센서값 전송 (Post)
-    def checkProcess( self, idx, processCmd, processName, processValue):
-        p = Process()
+    def __checkProcess( self, idx, processCmd, processName, processValue):
+        p = Process.ProcessModel()
         p.processCmd = processCmd
         p.processName = processName
         p.processValue = processValue
 
-        res = self.request_post( f'/pi/sensor/{idx}', p )
+        res = self.request_post( f'/pi/process/{idx}', p )
 
         return res
     
