@@ -7,14 +7,14 @@ from model import SensorModel
 from model import ProcessModel
 
 # 클래스의 메서드에서 첫 번째 매개변수로 self를 사용하는 것은 파이썬의 규칙 중 하나입니다. 
-# self를 사용하여 클래스의 인스턴스 변수 및 메서드에 접근할 수 있습니다.
+# self를 사용하여 클래스의 인스턴스 변수 및 메서드에 접근할 수 있다.
 class ServerComm :
     conn:http.client.HTTPConnection
     headers = {"Content-type": "application/json", "Accept": "*/*"}
     
-    #__init__ 설정 메서드에 ip주소 및 포트번호 설정
+    #__init__ 설정 메서드에 서버 ip주소 및 포트번호 설정
     def __init__( self ) :
-        self.conn = http.client.HTTPConnection( '192.168.1.10', 5000 )
+        self.conn = http.client.HTTPConnection( '192.168.1.12', 5000 ) # 서버 ip, 포트
 
     # HTTP 통신 Sensor Post 정의
     def sensorRequestPost( self, url, s:SensorModel ) :
@@ -43,7 +43,7 @@ class ServerComm :
 
         print("Server response:", msg)  # 받은 응답 출력
         
-        print("Server response:", json_object)  # 받은 응답 출력
+        # print("Server response:", json_object)  # 받은 응답 출력
 
         # 서버에서 json 파일 답변 여부를 확인하는 예외 처리
         # try:
@@ -53,7 +53,7 @@ class ServerComm :
         #     print(f"Error decoding JSON: {e}")
         #     return None
 
-        return json_object
+        return msg
 
     # HTTP 통신 Get 정의
     def requestGet( self, url ) :
@@ -73,7 +73,7 @@ class ServerComm :
         else:
             return False
 
-    # 1~4 차 제조 공정 전 제품 도착 여부 전송 (Post)
+    # 1~4 차 제조 공정 전 적외선 센서를 사용해 제품 도착 여부 전송 (Post)
     def confirmationObject( self, idx, on_off ) :
         s = SensorModel()
         
