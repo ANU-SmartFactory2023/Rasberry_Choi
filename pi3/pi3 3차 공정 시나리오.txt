@@ -1,0 +1,14 @@
+1. 2차 공정 두 번째 적외선 센서 값이 0이면 두 번째 컨베이어 벨트 구동
+2. 3차 공정 적외선 센서 값이 1이면 confirmationObject(3, 센서값 변수) 로 detect POST
+3. 컨베이어 벨트 정지
+4. 답변 중 msg 변수에 "ok" 를 확인할 시 ionlmplantationStart() 함수 호출
+5. 답변 중 msg 변수에 "ok" 를 확인할 시 랜덤값 변수 대입 후 딜레이 (제조 시간 구현)
+6. 각 공정 센서값 추출
+7. ionlmplantationEnd(센서값 변수) POST 함수 호출
+8. 답변 중 msg 변수에 따라 GuideMotorStep(good or fail) 클래스 Enum 설정
+9. doGuideMotor(GuideMotorStep) 함수를 호출하여 서보모터 작동
+10. 컨베이어 벨트 5초 구동 후 정지
+11. GuideMotorStep에 따라 시나리오 재조정
+
+
+
