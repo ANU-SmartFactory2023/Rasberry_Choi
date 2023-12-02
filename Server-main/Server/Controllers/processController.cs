@@ -60,7 +60,7 @@ namespace Server.Controllers
                 if (defective == true) //불량품
                 {
                     //등급외 DB 저장
-                    s.msg = "fail";
+                    s.msg = "pass";
                     s.statusCode = 200;
                 }
                 else if(defective == false){ //양품

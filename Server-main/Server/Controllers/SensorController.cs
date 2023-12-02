@@ -21,12 +21,12 @@ namespace Server.Controllers
         public string Post(int id, SensorModel sensorModel)
         {
             //받아온 값
-            string name = sensorModel.Name;
-            string state = sensorModel.State;
+            string name = sensorModel.sensorName;
+            string state = sensorModel.sensorState;
 
             //답장용
             ResponseModel r = new ResponseModel();
-
+            
             if (state == "on")
             {
                 //main화면 물체 감지 상태로 변경 (id이용)
@@ -50,6 +50,7 @@ namespace Server.Controllers
             else
             {
                 //error
+                
             }
 
             //답장

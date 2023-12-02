@@ -78,6 +78,8 @@ class ServerComm :
             return True
         else:
             return False
+        
+    
 
     # 1~4 차 제조 공정 전 적외선 센서를 사용해 제품 도착 여부 전송 (Post)
     def confirmationObject( self, idx, on_off ) :

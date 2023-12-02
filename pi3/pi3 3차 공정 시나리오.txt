@@ -7,8 +7,26 @@
 7. ionlmplantationEnd(센서값 변수) POST 함수 호출
 8. 답변 중 msg 변수에 따라 GuideMotorStep(good or fail) 클래스 Enum 설정
 9. doGuideMotor(GuideMotorStep) 함수를 호출하여 서보모터 작동
-10. 컨베이어 벨트 5초 구동 후 정지
+10. 컨베이어 벨트 5초 구동 후 정지?
 11. GuideMotorStep에 따라 시나리오 재조정
+
+수정사항 통신 클래스 직접적인 함수 return 부여
+confirmationObject 함수 매개변수 on_off에 때라 sensorState = "on" or "off" 를 적용
+서버 sensormodel 이름 변경
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 3번이 2번 적외선 센서 기준으로 모터를 구동하기로 했는데
