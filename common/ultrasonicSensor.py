@@ -1,4 +1,4 @@
-# ultrasonic_sensor.py
+# ultrasonicSensor.py
 import RPi.GPIO as GPIO
 import time
 

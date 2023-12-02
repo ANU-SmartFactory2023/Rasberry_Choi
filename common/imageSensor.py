@@ -12,7 +12,6 @@ class ImageCV:
 
     def count_black_pixels(self):
        
-
         image = self.cap.read()[1]
 
         # 이미지를 흑백으로 변환
